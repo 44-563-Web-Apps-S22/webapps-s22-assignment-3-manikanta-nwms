@@ -48,7 +48,36 @@ th, td {
     <tr><td>football</td><td>kansa</td><td>$100</td></tr>
     <tr><td>hockey</td><td>delhi</td><td>$50</td></tr>
 
-   
+</table>
+<hr size="15" noshade>
+<h3>Geometry Elementary/Polygons</h3>
+
+<blockquote cite="https://en.wikipedia.org/wiki/Polygon">
+    In geometry, a polygon (/ˈpɒlɪɡɒn/) is a plane figure that is described by a finite number of straight line segments connected to form a closed polygonal chain (or polygonal circuit). The bounded plane region, the bounding circuit, or the two together, may be called a polygon.
+
+    The segments of a polygonal circuit are called its edges or sides. The points where two edges meet are the polygon's vertices (singular: vertex) or corners. The interior of a solid polygon is sometimes called its body. An n-gon is a polygon with n sides; for example, a triangle is a 3-gon.
+<p>Source: <cite><a href="https://en.wikipedia.org/wiki/Polygon" rel="external">polygon</a></cite></p>
+</footer>
+</blockquote>
+
+<p>Oriented area of a triangle</p>
+<pre>
+    int signed_area_parallelogram(point2d p1, point2d p2, point2d p3) {
+        return cross(p2 - p1, p3 - p2);
+    }
     
+    double triangle_area(point2d p1, point2d p2, point2d p3) {
+        return abs(signed_area_parallelogram(p1, p2, p3)) / 2.0;
+    }
+    
+    bool clockwise(point2d p1, point2d p2, point2d p3) {
+        return signed_area_parallelogram(p1, p2, p3) < 0;
+    }
+    
+    bool counter_clockwise(point2d p1, point2d p2, point2d p3) {
+        return signed_area_parallelogram(p1, p2, p3) > 0;
+    }
+</pre>
+
 </body>
 </html>
